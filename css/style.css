@@ -1104,7 +1104,7 @@ footer a {
   animation: borderSpin 2s linear infinite;
 }
 
-/* show effect on hover */
+/* show effect on hover 
 
 .brand-card:hover::before {
   opacity: 1;
@@ -1118,7 +1118,7 @@ footer a {
   to {
     transform: rotate(360deg);
   }
-}
+}*/
 
 /* BADGE */
 
