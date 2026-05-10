@@ -923,7 +923,7 @@ footer a {
 }
 
 .package-info li::before {
-  content: "✓ ";
+  content: "◎";
   color: #ff3eb5;
 }
 
