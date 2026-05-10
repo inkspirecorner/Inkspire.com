@@ -702,6 +702,110 @@ footer a {
     );
 }
 
+/* =========================================
+   test SNAKE BORDER HOVER EFFECT
+========================================= */
+
+.brand-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid #222;
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* INNER BACKGROUND */
+.brand-card::before {
+  content: "";
+
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 21px;
+
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+
+  z-index: 1;
+}
+
+/* MOVING LIGHT */
+.brand-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,62,181,0.95) 0%,
+      rgba(255,62,181,0.35) 35%,
+      transparent 70%
+    );
+
+  top: -80px;
+  left: -80px;
+
+  opacity: 0;
+
+  z-index: 0;
+
+  transition: opacity 0.35s ease;
+
+  animation: snakeBorder 5s linear infinite;
+}
+
+/* KEEP CONTENT ABOVE */
+.brand-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* HOVER */
+.brand-card:hover {
+  transform: translateY(-6px);
+  border-color: #ff3eb5;
+}
+
+.brand-card:hover::after {
+  opacity: 1;
+}
+
+/* BORDER PATH */
+@keyframes snakeBorder {
+
+  0% {
+    top: -80px;
+    left: -80px;
+  }
+
+  25% {
+    top: -80px;
+    left: calc(100% - 80px);
+  }
+
+  50% {
+    top: calc(100% - 80px);
+    left: calc(100% - 80px);
+  }
+
+  75% {
+    top: calc(100% - 80px);
+    left: -80px;
+  }
+
+  100% {
+    top: -80px;
+    left: -80px;
+  }
+}
+
 /* =========================================================
    LEFT INFO SIDE
 ========================================================= */
