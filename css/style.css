@@ -1055,29 +1055,28 @@ footer a {
 .brand-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  padding: 2px;
+  inset: -2px;
+  border-radius: 24px;
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    transparent 50deg,
-    #ff3eb5 80deg,
-    transparent 110deg,
+    transparent 300deg,
+    #ff3eb5 330deg,
+    #ff3eb5 345deg,
     transparent 360deg
   );
   opacity: 0;
-  animation: snakeLine 2.4s linear infinite;
-  pointer-events: none;
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  z-index: 0;
+  animation: snakeLine 1.8s linear infinite;
 }
 
-.brand-card:hover {
-  transform: translateY(-6px);
+.brand-card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+  z-index: 1;
 }
 
 .brand-card:hover::before {
