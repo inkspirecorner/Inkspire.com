@@ -4,10 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inkspire Corner</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -15,655 +14,652 @@
       box-sizing: border-box;
     }
 
-    :root {
-      --bg: #000000;
-      --white: #ffffff;
-      --light: #efefef;
-      --line: rgba(255,255,255,0.15);
-      --dark-line: rgba(0,0,0,0.15);
-      --pink: #ff3db8;
-      --yellow: #f6d52f;
-      --cyan: #61e8ff;
-      --text-soft: rgba(255,255,255,0.82);
-    }
-
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--bg);
-      color: var(--white);
-      line-height: 1.4;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      background: #000;
+      color: white;
+      font-family: "Montserrat", sans-serif;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
     }
 
-    .container {
-      width: min(1200px, 90%);
+    .page {
+      width: 100%;
+      max-width: 1280px;
       margin: 0 auto;
-    }
-
-   .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 230px;
-  height: 48px;
-  border-radius: 999px;
-  background: #ff3db8;
-  color: white;
-  font-size: 14px;
-  font-weight: 500;
-  transition: 0.25s ease;
-
-  animation: floatBtn 3s ease-in-out infinite;
-}
-    @keyframes floatBtn {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-    .btn:hover {
-      transform: translateY(-2px);
-      opacity: 0.95;
+      padding: 0 72px;
     }
 
     /* NAV */
-    .site-header {
-      padding: 22px 0;
-      position: relative;
-      z-index: 10;
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 20;
+      padding: 28px 0;
     }
 
-   .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 64px;
-}
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
 
-.nav a {
-  position: relative;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 0;
-  transition: all 0.35s ease;
-}
+    .logo {
+      font-family: "Oswald", sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 0.95;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-/* underline */
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: #ff3db8;
-  transition: all 0.35s ease;
-  transform: translateX(-50%);
-  border-radius: 999px;
-}
+    .logo-mark {
+      width: 28px;
+      height: 32px;
+      background: linear-gradient(135deg, #35d7ff, #ff3eb5, #ffd22e);
+      clip-path: polygon(0 15%, 25% 0, 100% 60%, 75% 100%);
+    }
 
-/* hover effect */
-.nav a:hover {
-  color: #ff3db8;
-  transform: translateY(-2px);
-}
+    nav {
+      display: flex;
+      gap: 54px;
+    }
 
-/* animate underline */
-.nav a:hover::after {
-  width: 100%;
-}
+    nav a {
+      font-family: "Oswald", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      padding-bottom: 8px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background: #ff3eb5;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
 
     /* HERO */
+
     .hero {
+      min-height: 790px;
+      background:
+        linear-gradient(90deg, #000 0%, rgba(0,0,0,0.92) 34%, rgba(0,0,0,0.25) 72%),
+        url("images/hero-bg.png") center right / cover no-repeat;
       position: relative;
-      padding: 85px 0 130px;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
     }
 
-    .hero-inner {
-      width: min(1200px, 90%);
-      margin: 0 auto;
-      display: flex;
-      justify-content: flex-start;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 58px;
+      right: 0;
+      width: 135px;
+      height: 170px;
+      background:
+        linear-gradient(#67dcff, #67dcff) 0 0 / 28px 110px no-repeat,
+        linear-gradient(#ff3eb5, #ff3eb5) 52px 20px / 28px 120px no-repeat,
+        linear-gradient(#ffd63d, #ffd63d) 105px 70px / 28px 120px no-repeat;
+      transform: rotate(34deg);
     }
 
     .hero-content {
-      max-width: 510px;
-      margin-top: 40px;
+      max-width: 500px;
+      padding-top: 60px;
     }
 
-    .brand-block {
+    .hero h1 {
+      font-size: 78px;
+      line-height: 0.95;
+      font-weight: 800;
+      letter-spacing: -0.04em;
       margin-bottom: 28px;
     }
 
-    .brand-top {
-      font-size: 58px;
-      font-weight: 800;
-      line-height: 0.95;
-      color: var(--cyan);
-      text-transform: uppercase;
-    }
-
-    .brand-bottom {
-      font-size: 49px;
-      font-weight: 800;
-      line-height: 0.95;
-      text-transform: uppercase;
-      margin-top: 4px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0 6px;
-    }
-
-    .brand-bottom .pink {
-      color: var(--pink);
-    }
-
-    .brand-bottom .yellow {
-      color: var(--yellow);
-    }
+    .cyan { color: #49d9f3; }
+    .pink { color: #ff3eb5; }
+    .yellow { color: #ffda2f; }
 
     .tagline {
-      color: var(--yellow);
+      color: #ffd22e;
       font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.22em;
-      margin-top: 10px;
-      text-transform: none;
-    }
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-    
-    .hero-text {
-      max-width: 470px;
-      color: var(--text-soft);
-      font-size: 20px;
-      font-weight: 300;
-      line-height: 1.5;
-      margin: 30px 0 52px;
-    }
-
-    .corner-stripes {
-      position: absolute;
-      top: -10px;
-      right: 0;
-      width: 190px;
-      height: 230px;
-      pointer-events: none;
-    }
-
-    .corner-stripes span {
-      position: absolute;
-      width: 34px;
-      height: 120px;
-      transform: rotate(35deg);
-      border-radius: 2px;
-    }
-
-    .corner-stripes .s1 { background: #8beeff; right: 62px; top: -10px; }
-    .corner-stripes .s2 { background: #63d9ff; right: 16px; top: 10px; }
-    .corner-stripes .s3 { background: #d52cff; right: -30px; top: -12px; }
-    .corner-stripes .s4 { background: #ffc94a; right: 14px; top: 92px; }
-    .corner-stripes .s5 { background: #f7e24e; right: -30px; top: 128px; }
-
-    /* SECTION TITLES */
-    .section-title {
-      font-size: clamp(42px, 5vw, 74px);
-      font-weight: 300;
-      letter-spacing: -0.04em;
-      line-height: 1;
-    }
-
-    /* SERVICES */
-    .services {
-      padding: 34px 0 100px;
-    }
-
-    .services .section-title {
-      margin-bottom: 56px;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
-    }
-
-    .service-card {
-      border-left: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-      padding-bottom: 18px;
-      min-height: 430px;
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 185px;
-      object-fit: cover;
-    }
-
-    .service-card-body {
-      padding: 20px 18px 0;
-    }
-
-    .service-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 25px;
-      line-height: 1.05;
-      min-height: 72px;
-      margin-bottom: 86px;
-    }
-
-    .service-line {
-      height: 1px;
-      background: var(--line);
-      width: 100%;
-      margin-bottom: 18px;
-    }
-
-    .service-price {
-      font-size: 13px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 16px;
-    }
-
-    .service-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 120px;
-      height: 36px;
-      background: var(--pink);
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 500;
-    }
-
-    /* ABOUT STRIP */
-    .about {
-      background: #efefef;
-      color: #000;
-      padding: 72px 0 90px;
-    }
-
-    .about-wrap {
-      width: min(1200px, 90%);
-      margin: 0 auto;
-    }
-
-    .about-title {
-      font-size: clamp(38px, 5vw, 70px);
-      font-weight: 400;
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      max-width: 780px;
-      margin-bottom: 42px;
-    }
-
-    .about-main {
-      max-width: 860px;
-      font-size: 25px;
-      line-height: 1.45;
-      font-weight: 300;
-      margin-bottom: 52px;
-    }
-
-    .about-divider {
-      height: 1px;
-      background: var(--dark-line);
-      margin: 30px 0 28px;
-    }
-
-    .about-small {
-      max-width: 1020px;
-      font-size: 12px;
-      line-height: 1.6;
-      color: rgba(0,0,0,0.85);
+      font-weight: 700;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
       margin-bottom: 34px;
     }
 
-    .about .btn {
-      min-width: 160px;
-      height: 42px;
-      font-size: 13px;
+    .hero p {
+      color: #d3d3d3;
+      font-size: 17px;
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 42px;
     }
 
-    /* PORTFOLIO */
-    .portfolio {
-      padding: 72px 0 78px;
-      background: #000;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      background: #ff3eb5;
+      color: white;
+      min-width: 190px;
+      height: 48px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.3s ease;
     }
 
-    .portfolio-grid {
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(255, 62, 181, 0.35);
+    }
+
+    /* WHITE ABOUT SECTION */
+
+    .about {
+      background: #f2f2f2;
+      color: #111;
+      padding: 105px 0;
+    }
+
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: center;
     }
 
-    .portfolio-grid img {
-      width: 100%;
-      aspect-ratio: 1.34 / 1;
-      object-fit: cover;
+    .about h2 {
+      font-size: 58px;
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -0.05em;
+      margin-bottom: 28px;
+    }
+
+    .pink-line {
+      width: 70px;
+      height: 3px;
+      background: #ff3eb5;
+      margin-bottom: 32px;
+    }
+
+    .about p {
+      color: #333;
+      font-size: 18px;
+      line-height: 1.55;
+      margin-bottom: 32px;
+      max-width: 590px;
+    }
+
+    .small-copy {
+      font-size: 12px !important;
+      color: #555 !important;
+      border-top: 1px solid #ccc;
+      padding-top: 24px;
+    }
+
+    .about-visual {
+      height: 430px;
+      position: relative;
+    }
+
+    .about-card {
+      position: absolute;
+      background: white;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+
+    .about-card.one {
+      width: 270px;
+      height: 360px;
+      left: 40px;
+      top: 25px;
+      background: linear-gradient(135deg, #ddd, #fff);
+    }
+
+    .about-card.two {
+      width: 230px;
+      height: 230px;
+      right: 40px;
+      top: 80px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+    }
+
+    .about-card.three {
+      width: 210px;
+      height: 260px;
+      right: 100px;
+      bottom: 0;
+      background: linear-gradient(135deg, #111, #ddd);
+    }
+
+    .accent-block {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      background: #ff3eb5;
+      top: 55px;
+      right: 15px;
+    }
+
+    .accent-block.blue {
+      background: #35d7ff;
+      left: 10px;
+      bottom: 70px;
+      top: auto;
+    }
+
+    /* SPLIT SECTION */
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 640px;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+    }
+
+    .split-card {
+      position: relative;
+      padding: 0 72px 82px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      min-height: 640px;
+    }
+
+    .split-card:first-child {
+      border-right: 1px solid #333;
+    }
+
+    .split-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: 0.6s ease;
+      z-index: 0;
+    }
+
+    .split-card.services::before {
+      background-image:
+        linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.35)),
+        url("images/services-bg.png");
+    }
+
+    .split-card.projects::before {
+      background-image:
+        linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.35)),
+        url("images/projects-bg.png");
+    }
+
+    .split-card:hover::before {
+      transform: scale(1.06);
+    }
+
+    .split-content {
+      position: relative;
+      z-index: 2;
+      max-width: 410px;
+    }
+
+    .circle-icon {
+      width: 74px;
+      height: 74px;
+      border: 1px solid white;
+      border-radius: 50%;
+      margin-bottom: 190px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .split h3 {
+      font-size: 43px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .split p {
+      color: #d7d7d7;
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 34px;
+    }
+
+    .text-link {
+      font-weight: 700;
+      font-size: 15px;
+      border-bottom: 1px solid white;
+      padding-bottom: 8px;
+      display: inline-flex;
+      gap: 16px;
+    }
+
+    /* CLIENT STRIP */
+
+    .brand-strip {
+      padding: 54px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .brand-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      text-align: center;
+      align-items: center;
+      gap: 0;
+    }
+
+    .brand-row div {
+      font-size: 26px;
+      font-weight: 700;
+      color: #ddd;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid #333;
+    }
+
+    .brand-row div:last-child {
+      border-right: none;
+    }
+
+    .script {
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 400 !important;
+      font-size: 34px !important;
     }
 
     /* FOOTER */
-    .footer {
-      padding: 44px 0 60px;
-      background: #000;
-    }
 
-    .footer-divider {
-      height: 1px;
-      background: var(--line);
-      margin-bottom: 56px;
+    footer {
+      padding: 75px 0 85px;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 30px;
-      align-items: start;
+      gap: 80px;
     }
 
-    .footer-title {
-      font-size: 19px;
-      margin-bottom: 22px;
+    footer h4 {
+      margin-bottom: 24px;
+      font-size: 16px;
+      text-transform: uppercase;
     }
 
-    .footer-text,
-    .footer-links a,
-    .footer-copy {
-      font-size: 12px;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.86);
+    footer p,
+    footer a {
+      color: #cfcfcf;
+      font-size: 13px;
+      line-height: 2;
     }
 
-    .footer-links {
+    .socials {
       display: flex;
-      flex-direction: column;
-      gap: 2px;
-      justify-self: end;
-      text-align: left;
+      gap: 22px;
+      margin-top: 30px;
     }
 
-    .footer-copy {
-      justify-self: end;
-      align-self: end;
+    .socials span {
+      font-weight: 700;
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 1100px) {
-      .service-grid,
-      .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+      .page {
+        padding: 0 24px;
       }
 
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
+      header {
+        position: relative;
+        background: #000;
       }
 
-      .footer-copy {
-        justify-self: start;
-      }
-    }
-
-    @media (max-width: 768px) {
       .nav {
+        grid-template-columns: 1fr;
         gap: 20px;
+      }
+
+      nav {
+        gap: 22px;
         flex-wrap: wrap;
       }
 
       .hero {
-        padding: 50px 0 90px;
+        min-height: 720px;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
+          url("images/hero-bg.png") center / cover no-repeat;
       }
 
-      .brand-top {
-        font-size: 42px;
+      .hero h1 {
+        font-size: 54px;
       }
 
-      .brand-bottom {
-        font-size: 35px;
-      }
-
-      .tagline {
-        letter-spacing: 0.12em;
-        font-size: 12px;
-      }
-
-      .hero-text {
-        font-size: 16px;
-      }
-
-      .service-grid,
-      .portfolio-grid,
+      .about-grid,
+      .split,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .corner-stripes {
-        transform: scale(0.75);
-        transform-origin: top right;
+      .about h2 {
+        font-size: 42px;
       }
 
-      .about-main {
-        font-size: 18px;
+      .about-visual {
+        display: none;
       }
 
-      .service-card {
-        min-height: auto;
+      .split-card {
+        min-height: 520px;
+        padding: 0 28px 58px;
       }
 
-      .service-title {
-        margin-bottom: 42px;
-        min-height: auto;
+      .split-card:first-child {
+        border-right: none;
+        border-bottom: 1px solid #333;
       }
 
-      .footer-links,
-      .footer-copy {
-        justify-self: start;
+      .circle-icon {
+        margin-bottom: 120px;
+      }
+
+      .brand-row {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-row div {
+        border-right: none;
+        border-bottom: 1px solid #222;
       }
     }
   </style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <nav class="nav">
-        <a href="#">Home</a>
-        <a href="#">Service List</a>
-        <a href="#">Book Online</a>
+  <header>
+    <div class="page nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark"></span>
+        <span>INKSPIRE<br>CORNER</span>
+      </a>
+
+      <nav>
+        <a class="active" href="index.html">Home</a>
+        <a href="service-list.html">Service List</a>
+        <a href="book-online.html">Book Online</a>
         <a href="gallery.html">Gallery</a>
       </nav>
+
+      <div></div>
     </div>
   </header>
 
   <section class="hero">
-    <div class="corner-stripes" aria-hidden="true">
-      <span class="s1"></span>
-      <span class="s2"></span>
-      <span class="s3"></span>
-      <span class="s4"></span>
-      <span class="s5"></span>
-    </div>
-
-    <div class="hero-inner">
+    <div class="page">
       <div class="hero-content">
-        <div class="brand-block">
-          <div class="brand-top">Inkspire</div>
-          <div class="brand-bottom">
-            <span class="pink">Graphic</span>
-            <span class="yellow">Design</span>
-          </div>
-          <div class="tagline">Crafting Dreams Into Reality</div>
-        </div>
-        
-        <p class="hero-text reveal">
-  At Inkspire Corner, we deliver personalized branding solutions to help your
-  business shine. Let us create a unique identity that resonates.
-</p>
+        <h1>
+          <span class="cyan">INKSPIRE</span><br>
+          <span class="pink">GRAPHIC</span><br>
+          <span class="yellow">DESIGN</span>
+        </h1>
 
-        <a href="#" class="btn">Let’s Talk</a>
-      </div>
-    </div>
-  </section>
+        <div class="tagline">Crafting Dreams Into Reality</div>
 
-  <section class="services">
-    <div class="container">
-      <h2 class="section-title">SERVICES</h2>
+        <p>
+          At Inkspire Corner, we deliver personalized branding solutions to help your business shine.
+          Let us create a unique identity that resonates.
+        </p>
 
-      <div class="service-grid">
-        <article class="service-card">
-          <img src="images/brand-identity.jpg" alt="Brand Identity">
-          <div class="service-card-body">
-            <h3 class="service-title">Brand Identity</h3>
-            <div class="service-line"></div>
-            <p class="service-price">Starting at $500</p>
-            <a href="#" class="service-btn">Learn More</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/flyers-banners.jpg" alt="Flyers and Banners Design">
-          <div class="service-card-body">
-            <h3 class="service-title">Flyers &amp; Banners Design</h3>
-            <div class="service-line"></div>
-            <p class="service-price">Starting at $120</p>
-            <a href="#" class="service-btn">Learn More</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/packaging.jpg" alt="Packaging Design">
-          <div class="service-card-body">
-            <h3 class="service-title">Packaging Design</h3>
-            <div class="service-line"></div>
-            <p class="service-price">Starting at $200</p>
-            <a href="#" class="service-btn">Learn More</a>
-          </div>
-        </article>
-
-        <article class="service-card">
-          <img src="images/business-card.jpg" alt="Business Card Design">
-          <div class="service-card-body">
-            <h3 class="service-title">Business Card Design</h3>
-            <div class="service-line"></div>
-            <p class="service-price">Starting at $100</p>
-            <a href="#" class="service-btn">Learn More</a>
-          </div>
-        </article>
+        <a href="book-online.html" class="btn">Let's Talk <span>→</span></a>
       </div>
     </div>
   </section>
 
   <section class="about">
-    <div class="about-wrap">
-      <h2 class="about-title">WHERE CREATIVITY MEETS BRANDING</h2>
+    <div class="page about-grid">
+      <div>
+        <h2>WHERE CREATIVITY<br>MEETS BRANDING</h2>
+        <div class="pink-line"></div>
 
-      <p class="about-main reveal">
-  Inkspire Corner specializes in crafting unique branding solutions tailored to
-  your business's needs. Our services include packaging design, branding identity,
-  and more. We believe that a strong brand is essential for success, which is why
-  each project is customized.
-</p>
+        <p>
+          Inkspire Corner specializes in crafting unique branding solutions tailored to your business's needs.
+          Our services include packaging design, branding identity, and more.
+        </p>
 
-      <div class="about-divider"></div>
+        <p>
+          We believe that a strong brand is essential for success, which is why each project is customized.
+        </p>
 
-    <p class="about-small reveal">
-  Through innovative designs for business cards, flyers, and banners, our team is
-  dedicated to showcasing your unique voice and vision. With online appointment booking,
-  connecting with us has never been easier. We look forward to elevating your brand.
-</p>
+        <p class="small-copy">
+          Through innovative designs for business cards, flyers, and banners, our team is dedicated to showcasing
+          your unique voice and vision. With online appointment booking, connecting with us has never been easier.
+        </p>
 
-      <a href="#" class="btn">Discover More</a>
-    </div>
-  </section>
+        <a href="service-list.html" class="btn">Discover More <span>→</span></a>
+      </div>
 
-  <section class="portfolio">
-    <div class="container">
-      <div class="portfolio-grid">
-        <img src="images/project-1.jpg" alt="Sleeping Bunny packaging">
-        <img src="images/project-2.jpg" alt="Aurora candle branding">
-        <img src="images/project-3.jpg" alt="Fruit Burst branding">
+      <div class="about-visual">
+        <div class="accent-block"></div>
+        <div class="accent-block blue"></div>
+        <div class="about-card one"></div>
+        <div class="about-card two">INKSPIRE<br>CORNER</div>
+        <div class="about-card three"></div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-divider"></div>
+  <section class="split">
+    <a href="service-list.html" class="split-card services">
+      <div class="split-content">
+        <div class="circle-icon">♙</div>
+        <h3>SERVICES</h3>
+        <div class="pink-line"></div>
+        <p>
+          From brand identity to packaging design, we offer solutions that help your business stand out
+          and leave a lasting impression.
+        </p>
+        <span class="text-link">Explore Services <span>→</span></span>
+      </div>
+    </a>
 
-      <div class="footer-grid">
-        <div></div>
+    <a href="gallery.html" class="split-card projects">
+      <div class="split-content">
+        <div class="circle-icon">▧</div>
+        <h3>PROJECTS</h3>
+        <div class="pink-line"></div>
+        <p>
+          Explore our recent work and see how we turn ideas into compelling visual stories
+          that connect with audiences.
+        </p>
+        <span class="text-link">View Projects <span>→</span></span>
+      </div>
+    </a>
+  </section>
 
-        <div>
-          <h3 class="footer-title">Inkspire Corner</h3>
-          <p class="footer-text reveal">
-  619-591-6843<br>
-  InkspireCorner@gmail.com<br><br>
-  771 Jamaica rd<br>
-  San Diego, CA 92019
-</p>
+  <section class="brand-strip">
+    <div class="page brand-row">
+      <div class="script">Sleeping<br>Bunny</div>
+      <div class="script">Aurora</div>
+      <div>FRUIT<br>BURST</div>
+      <div>CLOUD<br>NINE</div>
+      <div class="script">Peak</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="page footer-grid">
+      <div>
+        <a href="index.html" class="logo">
+          <span class="logo-mark"></span>
+          <span>INKSPIRE<br>CORNER</span>
+        </a>
+
+        <p style="margin-top: 24px;">
+          Crafting dreams into reality through creativity, strategy, and design.
+        </p>
+
+        <div class="socials">
+          <span>f</span>
+          <span>◎</span>
+          <span>Be</span>
+          <span>◉</span>
         </div>
+      </div>
 
-        <div class="footer-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Accessibility Statement</a>
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Refund Policy</a>
-          <p class="footer-copy reveal" style="margin-top: 36px;">© 2025 by Inkspire Corner.</p>
-        </div>
+      <div>
+        <h4>Contact</h4>
+        <p>619-591-6843</p>
+        <p>InkspireCorner@gmail.com</p>
+        <p>771 Jamaica Rd<br>San Diego, CA 92019</p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Accessibility Statement</a></p>
+        <p><a href="#">Terms & Conditions</a></p>
+        <p><a href="#">Refund Policy</a></p>
       </div>
     </div>
   </footer>
 
-<script>
-  const reveals = document.querySelectorAll(".reveal");
-
-  const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-
-    reveals.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
-
-      if (elementTop < windowHeight - 100) {
-        el.classList.add("active");
-      }
-    });
-  };
-
-  window.addEventListener("scroll", revealOnScroll);
-
-  // run once on load
-  revealOnScroll();
-</script>
-  
 </body>
 </html>
