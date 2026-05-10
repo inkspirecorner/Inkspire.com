@@ -1052,10 +1052,6 @@ footer a {
 
   transform: translateY(-4px);
 }
-.brand-card.featured {
-  border-color: #ff3eb5;
-  box-shadow: 0 0 30px rgba(255, 62, 181, 0.12);
-}
 
 .badge {
   position: absolute;
