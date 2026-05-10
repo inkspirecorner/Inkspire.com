@@ -475,8 +475,8 @@ footer a {
 }
 
 .service-item {
-  display: grid;
-  grid-template-columns: 70px minmax(360px, 1fr) 260px 50px;
+ display: grid;
+  grid-template-columns: 70px minmax(360px, 1fr) 260px;
   gap: 34px;
   align-items: center;
   padding: 38px 0;
@@ -511,10 +511,6 @@ footer a {
   border-radius: 10px;
 }
 
-.service-arrow {
-  color: #ff3eb5;
-  font-size: 42px;
-}
 
 /* =========================================================
    MOBILE
