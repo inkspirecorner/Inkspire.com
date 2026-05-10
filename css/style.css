@@ -1338,3 +1338,6 @@ footer a {
     font-size: 34px;
   }
 }
+.brand-card {
+  border: 5px solid red !important;
+}
