@@ -759,7 +759,7 @@ footer a {
 .price {
   color: #ff3eb5;
 
-  font-size: 58px;
+  font-size: 42px;
   font-weight: 800;
 
   margin-bottom: 34px;
@@ -826,28 +826,20 @@ footer a {
 
 .package-image.concept {
   background-image:
-    linear-gradient(
-      to right,
-      rgba(0,0,0,0.82),
-      rgba(0,0,0,0.08)
-    ),
+    linear-gradient(to right, rgba(0,0,0,0.82), rgba(0,0,0,0.08)),
     url("../images/package-concept.png");
 
-  background-size: 92%;
-  background-position: center right;
+  background-size: cover;
+  background-position: center;
 }
 
 .package-image.print {
   background-image:
-    linear-gradient(
-      to right,
-      rgba(0,0,0,0.82),
-      rgba(0,0,0,0.08)
-    ),
+    linear-gradient(to right, rgba(0,0,0,0.82), rgba(0,0,0,0.08)),
     url("../images/package-print.png");
 
-  background-size: 92%;
-  background-position: center right;
+  background-size: cover;
+  background-position: center;
 }
 
 /* TOP BLACK CINEMATIC FADE */
