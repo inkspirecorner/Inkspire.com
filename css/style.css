@@ -1802,15 +1802,12 @@ end of test
 
   padding: 26px 28px;
 
-  border-top: 1px solid #444;
+  border-top: 1px solid rgba(255,255,255,0.12);
 
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.92),
-    rgba(0,0,0,0.78)
-  );
+  background: rgba(0,0,0,0.42);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .bc-delivery-box p {
