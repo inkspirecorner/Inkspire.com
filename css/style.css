@@ -1165,3 +1165,50 @@ footer a {
     padding: 40px 28px;
   }
 }
+/* BRAND CARD FIXES */
+
+.brand-card {
+  border-radius: 22px;
+  padding: 52px 48px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: hidden;
+}
+
+.brand-card .btn {
+  margin-top: auto;
+}
+
+.brand-card.featured {
+  border-color: #2a2a2a;
+  box-shadow: none;
+}
+
+.brand-card:hover {
+  border-color: #ff3eb5;
+  box-shadow: 0 0 30px rgba(255, 62, 181, 0.18);
+  transform: translateY(-4px);
+}
+
+.badge {
+  top: 28px;
+  right: 28px;
+  left: auto;
+  z-index: 10;
+}
+
+.brand-package-grid {
+  gap: 32px;
+  align-items: stretch;
+}
+
+.brand-card h3 {
+  font-size: 28px;
+  line-height: 1.15;
+}
+
+.brand-card h4 {
+  margin-top: 26px;
+}
