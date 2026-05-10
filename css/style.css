@@ -690,7 +690,7 @@ footer a {
   overflow: hidden;
 
   display: grid;
-  grid-template-columns: 46% 54%;
+  grid-template-columns: 56% 48%;
 
   min-height: 720px;
 
