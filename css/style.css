@@ -833,8 +833,8 @@ footer a {
     ),
     url("../images/package-concept.png");
 
-  background-size: cover;
-  background-position: center;
+  background-size: 92%;
+  background-position: center right;
 }
 
 .package-image.print {
@@ -846,8 +846,8 @@ footer a {
     ),
     url("../images/package-print.png");
 
-  background-size: cover;
-  background-position: center;
+  background-size: 92%;
+  background-position: center right;
 }
 
 /* TOP BLACK CINEMATIC FADE */
