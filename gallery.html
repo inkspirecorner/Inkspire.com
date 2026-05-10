@@ -1,1 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Inkspire Corner</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .page-header {
+      padding: 100px 24px 70px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(54px, 7vw, 82px);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      font-weight: 300;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      width: 100%;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: #111;
+      aspect-ratio: 1.28 / 1;
+    }
+
+    .gallery-item img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease, filter 0.55s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+      filter: brightness(1.08);
+    }
+
+    .gallery-item.large {
+      grid-column: span 1;
+    }
+
+    .nav-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 44px 0 120px;
+    }
+
+    .nav {
+      background: #000;
+      display: flex;
+      gap: 70px;
+      padding: 20px 60px;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+    }
+
+    .footer {
+      padding: 0 0 70px;
+    }
+
+    .footer-inner {
+      width: min(900px, 86%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .footer h2 {
+      font-size: 28px;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    .footer p,
+    .footer a {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      margin-top: 4px;
+    }
+
+    .copyright {
+      margin-top: 58px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: all 0.8s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav {
+        gap: 28px;
+        padding: 18px 28px;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-header {
+        padding-top: 70px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="page-header">
+    <h1>Gallery</h1>
+    <p class="reveal">Heading 3</p>
+  </header>
+
+  <main class="gallery-grid">
+    <div class="gallery-item reveal">
+      <img src="images/gallery-1.jpg" alt="Aurora candle branding">
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="images/gallery-2.jpg" alt="Sleeping Bunny packaging">
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="images/gallery-3.jpg" alt="Neon Burst packaging">
+    </div>
+
+    <div class="gallery-item reveal">
+      <img src="images/gallery-4.jpg" alt="Fruit Burst branding">
+    </div>
+  </main>
+
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="#">Service List</a>
+      <a href="#">Book Online</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h2>Inkspire Corner</h2>
+        <p>
+          619-591-6843<br>
+          InkspireCorner@gmail.com<br><br>
+          771 Jamacha rd, unit 124<br>
+          San Diego, CA 92019
+        </p>
+      </div>
+
+      <div>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Accessibility Statement</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Refund Policy</a>
+        </div>
+
+        <p class="copyright">© 2025 by Inkspire Corner.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      const windowHeight = window.innerHeight;
+
+      reveals.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 80) {
+          el.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+  </script>
+
+</body>
+</html>
