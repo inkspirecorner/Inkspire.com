@@ -706,7 +706,7 @@ footer a {
    test SNAKE BORDER HOVER EFFECT
 ========================================= */
 
-.brand-card {
+.package-card {
   position: relative;
   overflow: hidden;
   border-radius: 22px;
@@ -719,7 +719,7 @@ footer a {
 }
 
 /* INNER BACKGROUND */
-.brand-card::before {
+.package-card::before {
   content: "";
 
   position: absolute;
@@ -733,7 +733,7 @@ footer a {
 }
 
 /* MOVING LIGHT */
-.brand-card::after {
+.package-card::after {
   content: "";
 
   position: absolute;
@@ -762,18 +762,18 @@ footer a {
 }
 
 /* KEEP CONTENT ABOVE */
-.brand-card > * {
+.package-card > * {
   position: relative;
   z-index: 2;
 }
 
 /* HOVER */
-.brand-card:hover {
+.package-card:hover {
   transform: translateY(-6px);
   border-color: #ff3eb5;
 }
 
-.brand-card:hover::after {
+.package-card:hover::after {
   opacity: 1;
 }
 
