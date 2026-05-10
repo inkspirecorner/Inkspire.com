@@ -756,6 +756,18 @@ footer a {
   line-height: 1.6;
 }
 
+.price-wrap {
+  margin-bottom: 34px;
+}
+
+.price-label {
+  font-size: 13px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
 .price {
   color: #ff3eb5;
 
