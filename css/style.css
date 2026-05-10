@@ -743,6 +743,10 @@ footer a {
   color: #ff3eb5;
 }
 
+.package-info .btn {
+    margin-top: 28px;
+}
+
 .package-image {
   background-size: cover;
   background-position: center;
