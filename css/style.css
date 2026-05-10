@@ -1052,31 +1052,20 @@ footer a {
   transition: transform 0.35s ease;
 }
 
+.brand-card:hover {
+  transform: translateY(-6px);
+}
+
 .brand-card::before {
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: 24px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 300deg,
-    #ff3eb5 330deg,
-    #ff3eb5 345deg,
-    transparent 360deg
-  );
+  width: 120px;
+  height: 3px;
+  background: #ff3eb5;
+  box-shadow: 0 0 18px #ff3eb5;
   opacity: 0;
-  z-index: 0;
-  animation: snakeLine 1.8s linear infinite;
-}
-
-.brand-card::after {
-  content: "";
-  position: absolute;
-  inset: 2px;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #050505, #0b0b0b);
-  z-index: 1;
+  z-index: 20;
+  animation: snakeAround 3s linear infinite;
 }
 
 .brand-card:hover::before {
@@ -1088,9 +1077,53 @@ footer a {
   z-index: 2;
 }
 
-@keyframes snakeLine {
-  to {
-    transform: rotate(360deg);
+@keyframes snakeAround {
+  0% {
+    top: 0;
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  25% {
+    top: 0;
+    left: calc(100% - 120px);
+    transform: rotate(0deg);
+  }
+
+  26% {
+    top: 0;
+    left: calc(100% - 3px);
+    transform: rotate(90deg);
+  }
+
+  50% {
+    top: calc(100% - 120px);
+    left: calc(100% - 3px);
+    transform: rotate(90deg);
+  }
+
+  51% {
+    top: calc(100% - 3px);
+    left: calc(100% - 120px);
+    transform: rotate(180deg);
+  }
+
+  75% {
+    top: calc(100% - 3px);
+    left: 0;
+    transform: rotate(180deg);
+  }
+
+  76% {
+    top: calc(100% - 120px);
+    left: 0;
+    transform: rotate(270deg);
+  }
+
+  100% {
+    top: 0;
+    left: 0;
+    transform: rotate(270deg);
   }
 }
 
@@ -1109,7 +1142,7 @@ footer a {
   font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
-  z-index: 5;
+  z-index: 30;
 }
 
 /* CARD CONTENT */
@@ -1259,74 +1292,5 @@ footer a {
 
   .brand-cta-card {
     padding: 40px 28px;
-  }
-}
-/* VISIBLE SNAKE BORDER FIX */
-
-.brand-card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #2a2a2a;
-}
-
-.brand-card::before {
-  content: "";
-  position: absolute;
-  width: 140px;
-  height: 4px;
-  background: #ff3eb5;
-  box-shadow: 0 0 16px #ff3eb5;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 5;
-  animation: snakeAround 3s linear infinite;
-}
-
-.brand-card:hover::before {
-  opacity: 1;
-}
-
-@keyframes snakeAround {
-  0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
-  }
-
-  25% {
-    top: 0;
-    left: calc(100% - 140px);
-    transform: rotate(0deg);
-  }
-
-  26% {
-    transform: rotate(90deg);
-  }
-
-  50% {
-    top: calc(100% - 140px);
-    left: calc(100% - 4px);
-    transform: rotate(90deg);
-  }
-
-  51% {
-    transform: rotate(180deg);
-  }
-
-  75% {
-    top: calc(100% - 4px);
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  76% {
-    transform: rotate(270deg);
-  }
-
-  100% {
-    top: 0;
-    left: 0;
-    transform: rotate(270deg);
   }
 }
