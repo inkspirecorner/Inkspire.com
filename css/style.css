@@ -675,13 +675,14 @@ footer a {
   border-radius: 18px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  min-height: 620px;
+  grid-template-columns: 46% 54%;
+  min-height: 720px;
   background: linear-gradient(135deg, #050505, #111);
 }
 
 .package-info {
-  padding: 42px 34px;
+  padding: 56px 54px;
+    max-width: 560px;
 }
 
 .package-icon {
@@ -748,8 +749,10 @@ footer a {
 }
 
 .package-image {
-  background-size: cover;
-  background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 720px;
 }
 
 .package-image.concept {
@@ -762,6 +765,12 @@ footer a {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.05)),
     url("../images/package-print.png");
+}
+
+.package-info h3 {
+    font-size: 52px;
+    line-height: 1;
+    white-space: nowrap;
 }
 
 .process-section {
