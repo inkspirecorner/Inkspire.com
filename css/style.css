@@ -1186,11 +1186,7 @@ footer a {
   box-shadow: none;
 }
 
-.brand-card:hover {
-  border-color: #ff3eb5;
-  box-shadow: 0 0 30px rgba(255, 62, 181, 0.18);
-  transform: translateY(-4px);
-}
+
 
 .badge {
   top: 28px;
@@ -1211,4 +1207,82 @@ footer a {
 
 .brand-card h4 {
   margin-top: 26px;
+}
+
+/* =========================================
+   ANIMATED BRAND CARD BORDER
+========================================= */
+
+.brand-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid #2a2a2a;
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+  transition: transform 0.35s ease;
+}
+
+.brand-card::before {
+  content: "";
+
+  position: absolute;
+  inset: -1px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ff3eb5,
+      transparent,
+      #ff3eb5,
+      transparent
+    );
+
+  background-size: 300% 300%;
+
+  opacity: 0;
+
+  z-index: 0;
+
+  transition: opacity 0.35s ease;
+
+  animation: borderFlow 4s linear infinite;
+}
+
+.brand-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 1px;
+
+  border-radius: 21px;
+
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+
+  z-index: 1;
+}
+
+.brand-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.brand-card:hover {
+  transform: translateY(-6px);
+}
+
+.brand-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 300% 50%;
+  }
 }
