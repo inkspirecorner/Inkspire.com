@@ -1688,13 +1688,22 @@ footer a {
 
 .bc-delivery-box {
   position: absolute;
-  left: 16px;
-  right: 16px;
-  bottom: 16px;
-  padding: 18px;
-  border: 1px solid #444;
-  background: rgba(0,0,0,0.72);
-  backdrop-filter: blur(8px);
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 26px 28px;
+
+  border-top: 1px solid #444;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92),
+    rgba(0,0,0,0.78)
+  );
+
+  backdrop-filter: blur(10px);
 }
 
 .bc-delivery-box p {
