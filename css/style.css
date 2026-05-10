@@ -409,7 +409,7 @@ footer a {
 
 .services-showcase-grid {
   display: grid;
-  grid-template-columns: 0.95fr 1.35fr;
+  grid-template-columns: 1.1fr 1.2fr;
   gap: 90px;
   align-items: stretch;
 }
