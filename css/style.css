@@ -1072,51 +1072,6 @@ footer a {
   box-shadow: 0 18px 50px rgba(255, 62, 181, 0.12);
 }
 
-/* clean animated border glow */
-.brand-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  padding: 2px;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 250deg,
-    #ff3eb5 292deg,
-    #ffffff 305deg,
-    #ff3eb5 318deg,
-    transparent 360deg
-  );
-
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-          mask-composite: exclude;
-
-  opacity: 0;
-  animation: snakeSpin 2.6s linear infinite;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.brand-card:hover::before {
-  opacity: 1;
-}
-
-.brand-card > * {
-  position: relative;
-  z-index: 2;
-}
-
-@keyframes snakeSpin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* BADGE */
 
 .badge {
