@@ -769,6 +769,8 @@ footer a {
     background-repeat: no-repeat;
     background-position: center;
     min-height: 720px;
+    position: relative;
+    overflow: hidden;
 }
 
 .package-image.concept {
@@ -781,6 +783,30 @@ footer a {
   background-image:
     linear-gradient(to right, rgba(0,0,0,0.75), rgba(0,0,0,0.05)),
     url("../images/package-print.png");
+}
+
+.package-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.88) 0%,
+      rgba(0,0,0,0.45) 22%,
+      rgba(0,0,0,0) 45%
+    );
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+.package-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .package-info h3 {
