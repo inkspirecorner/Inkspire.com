@@ -698,8 +698,24 @@ footer a {
 }
 
 .package-info h3 {
-  font-size: 30px;
-  margin-bottom: 8px;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 18px;
+
+  position: relative;
+  z-index: 5;
+
+  width: max-content;
+  white-space: nowrap;
+
+  margin-right: -220px;
+}
+
+.package-info {
+  position: relative;
+  z-index: 5;
 }
 
 .muted {
