@@ -984,10 +984,17 @@ footer a {
    BRAND IDENTITY PAGE
 ========================================================= */
 
+/* HERO */
+
 .brand-hero {
   min-height: 560px;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.96) 0%, rgba(0,0,0,0.78) 38%, rgba(0,0,0,0.15) 80%),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.96) 0%,
+      rgba(0,0,0,0.78) 38%,
+      rgba(0,0,0,0.15) 80%
+    ),
     url("../images/brand-hero.png") center right / cover no-repeat;
   display: flex;
   align-items: center;
@@ -1008,6 +1015,8 @@ footer a {
   max-width: 560px;
   margin-bottom: 34px;
 }
+
+/* PACKAGES */
 
 .brand-packages {
   background: #000;
@@ -1036,7 +1045,9 @@ footer a {
   align-items: stretch;
 }
 
-/* CARDS */
+/* =========================================================
+   CARDS
+========================================================= */
 
 .brand-card {
   position: relative;
@@ -1049,85 +1060,77 @@ footer a {
   flex-direction: column;
   gap: 12px;
   background: linear-gradient(145deg, #050505, #0b0b0b);
-  transition: transform 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .brand-card:hover {
   transform: translateY(-6px);
+  border-color: rgba(255, 62, 181, 0.35);
+  box-shadow:
+    0 10px 40px rgba(255, 62, 181, 0.08);
 }
+
+/* rotating neon border */
 
 .brand-card::before {
   content: "";
   position: absolute;
-  width: 120px;
-  height: 3px;
-  background: #ff3eb5;
-  box-shadow: 0 0 18px #ff3eb5;
+  inset: -2px;
+  border-radius: 24px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 55deg,
+    #ff3eb5 85deg,
+    #ffffff 92deg,
+    #ff3eb5 100deg,
+    transparent 130deg,
+    transparent 360deg
+  );
   opacity: 0;
-  z-index: 20;
-  animation: snakeAround 3s linear infinite;
+  z-index: 0;
+  animation: snakeSpin 3s linear infinite;
+  transition: opacity 0.35s ease;
 }
+
+/* show glow on hover */
 
 .brand-card:hover::before {
   opacity: 1;
 }
+
+/* inner mask */
+
+.brand-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #050505, #0b0b0b);
+  z-index: 1;
+}
+
+/* keep content above glow */
 
 .brand-card > * {
   position: relative;
   z-index: 2;
 }
 
-@keyframes snakeAround {
-  0% {
-    top: 0;
-    left: 0;
-    transform: rotate(0deg);
-  }
+/* rotation animation */
 
-  25% {
-    top: 0;
-    left: calc(100% - 120px);
-    transform: rotate(0deg);
-  }
-
-  26% {
-    top: 0;
-    left: calc(100% - 3px);
-    transform: rotate(90deg);
-  }
-
-  50% {
-    top: calc(100% - 120px);
-    left: calc(100% - 3px);
-    transform: rotate(90deg);
-  }
-
-  51% {
-    top: calc(100% - 3px);
-    left: calc(100% - 120px);
-    transform: rotate(180deg);
-  }
-
-  75% {
-    top: calc(100% - 3px);
-    left: 0;
-    transform: rotate(180deg);
-  }
-
-  76% {
-    top: calc(100% - 120px);
-    left: 0;
-    transform: rotate(270deg);
-  }
-
-  100% {
-    top: 0;
-    left: 0;
-    transform: rotate(270deg);
+@keyframes snakeSpin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
-/* BADGE */
+/* =========================================================
+   BADGE
+========================================================= */
 
 .badge {
   position: absolute;
@@ -1145,7 +1148,9 @@ footer a {
   z-index: 30;
 }
 
-/* CARD CONTENT */
+/* =========================================================
+   CARD CONTENT
+========================================================= */
 
 .package-icon {
   width: 64px;
@@ -1157,6 +1162,8 @@ footer a {
   justify-content: center;
   font-size: 28px;
   margin-bottom: 18px;
+  box-shadow:
+    0 0 25px rgba(255, 62, 181, 0.45);
 }
 
 .brand-card h3 {
@@ -1168,6 +1175,7 @@ footer a {
 .brand-card .muted {
   min-height: 44px;
   margin-bottom: 20px;
+  color: #aaa;
 }
 
 .price-wrap {
@@ -1199,25 +1207,33 @@ footer a {
 .brand-card ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .brand-card li,
 .brand-card p {
   color: #ddd;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
+}
+
+.brand-card li {
+  margin-bottom: 10px;
 }
 
 .brand-card li::before {
   content: "✓ ";
   color: #ff3eb5;
+  font-weight: 700;
 }
 
 .brand-card .btn {
   margin-top: auto;
 }
 
-/* PROCESS */
+/* =========================================================
+   PROCESS
+========================================================= */
 
 .brand-process {
   background: #000;
@@ -1253,7 +1269,9 @@ footer a {
   line-height: 1.7;
 }
 
-/* CTA */
+/* =========================================================
+   CTA
+========================================================= */
 
 .brand-cta {
   background: #000;
@@ -1268,7 +1286,12 @@ footer a {
   display: flex;
   align-items: center;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.92), rgba(0,0,0,0.55), rgba(0,0,0,0.1)),
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,0.92),
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.1)
+    ),
     url("../images/brand-cta.png") center right / cover no-repeat;
 }
 
@@ -1278,19 +1301,40 @@ footer a {
   margin-bottom: 30px;
 }
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 900px) {
+
   .brand-package-grid,
   .brand-process-grid {
     grid-template-columns: 1fr;
+  }
+
+  .brand-hero {
+    min-height: auto;
+    padding: 140px 0 80px;
+    background-position: center;
   }
 
   .brand-hero h1 {
     font-size: 54px;
   }
 
+  .brand-hero p {
+    font-size: 16px;
+  }
+
+  .brand-card {
+    min-height: auto;
+  }
+
   .brand-cta-card {
     padding: 40px 28px;
+  }
+
+  .brand-cta-card h2 {
+    font-size: 34px;
   }
 }
