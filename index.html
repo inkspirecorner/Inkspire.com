@@ -96,15 +96,39 @@
 }
 
 .nav a {
-  font-family: 'Oswald', sans-serif;
   position: relative;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 8px 0;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+}
+
+/* underline */
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: #ff3db8;
+  transition: all 0.35s ease;
+  transform: translateX(-50%);
+  border-radius: 999px;
+}
+
+/* hover effect */
+.nav a:hover {
+  color: #ff3db8;
+  transform: translateY(-2px);
+}
+
+/* animate underline */
+.nav a:hover::after {
+  width: 100%;
 }
 
     /* HERO */
