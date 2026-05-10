@@ -989,11 +989,11 @@ footer a {
   overflow: hidden;
   border-radius: 22px;
   border: 1px solid #2a2a2a;
-  padding: 52px 48px;
-  min-height: 640px;
+  padding: 40px 42px;
+  min-height: 560px;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+   gap: 12px;
   background: linear-gradient(145deg, #050505, #0b0b0b);
   transition: transform 0.35s ease;
 }
@@ -1038,4 +1038,45 @@ footer a {
   to {
     transform: rotate(360deg);
   }
+}
+
+.brand-card h3 {
+  font-size: 26px;
+  line-height: 1.12;
+  margin-bottom: 8px;
+}
+
+.brand-card .muted {
+  min-height: 44px;
+  margin-bottom: 20px;
+}
+
+.price-wrap {
+  margin-bottom: 20px;
+}
+
+.brand-card h4 {
+  margin: 22px 0 10px;
+}
+
+.brand-card li,
+.brand-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.brand-card .btn {
+  margin-top: auto;
+}
+
+/* move badge to top-right corner */
+.badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  left: auto;
+  width: auto;
+  padding: 8px 14px;
+  border-radius: 999px;
+  z-index: 20;
 }
