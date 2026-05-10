@@ -1036,14 +1036,22 @@ footer a {
 }
 
 .brand-card {
-  position: relative;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+
   border: 1px solid #2a2a2a;
-  border-radius: 18px;
-  padding: 42px 34px;
-  background: linear-gradient(135deg, #050505, #111);
-  min-height: 560px;
 }
 
+.brand-card:hover {
+  border-color: #ff3eb5;
+
+  box-shadow:
+    0 0 30px rgba(255, 62, 181, 0.18);
+
+  transform: translateY(-4px);
+}
 .brand-card.featured {
   border-color: #ff3eb5;
   box-shadow: 0 0 30px rgba(255, 62, 181, 0.12);
