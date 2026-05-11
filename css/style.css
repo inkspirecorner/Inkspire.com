@@ -1387,16 +1387,16 @@ footer a {
 
 .brand-process h2 {
   text-align: center;
-  font-size: 56px;
-  line-height: 1.05;
-  margin-bottom: 70px;
+  font-size: 34px;
+  line-height: 1.15;
+  margin-bottom: 50px;
 }
 
 .brand-process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 46px;
-  margin-top: 50px;
+  gap: 34px;
+  margin-top: 40px;
 }
 
 .brand-process-grid div {
@@ -1408,14 +1408,14 @@ footer a {
 .brand-process-grid span {
   display: block;
   color: #ff3eb5;
-  font-size: 42px;
+  font-size: 26px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .brand-process-grid h3 {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 700;
   margin-bottom: 14px;
   color: #fff;
@@ -1423,7 +1423,7 @@ footer a {
 
 .brand-process-grid p {
   color: #bdbdbd;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.7;
   max-width: 320px;
 }
